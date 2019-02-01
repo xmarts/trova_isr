@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="report_sale_camision_total" inherit_id="sales_commission_calculation.sales_commission_worksheet_id">
+		<xpath expr="//div[@class='page']/table[1]" position="inside">
+			<tr>
+				 <td><strong>Infonavit</strong></td><td><span t-field="doc.monto_info"/></td>
+                 <td><strong>ISR</strong></td><td><span t-field="doc.monto_isr"/></td>
+			</tr>
+			<tr>
+				 <td colspan="2"><strong>Total a pagar</strong></td><td coolspan="2"><span t-field="doc.total_comi"/></td>
+			</tr>
+		</xpath>
+	</template>
+</odoo>

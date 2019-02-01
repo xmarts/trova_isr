@@ -1,0 +1,33 @@
+<odoo>
+  <data>
+   <record id = "inherit_Infonavi_nuevo" model = "ir.ui.view">
+     <field name = "name">inherit_Infonavi_nuevo</field>
+     <field name = "model">res.partner</field>
+     <field name = "inherit_id" ref = "base.view_partner_form"/>
+     <field name = "arch" type = "xml">
+      <xpath expr = "//notebook" position = "inside">
+        <page string = "Infonavit">
+          <group>
+            <field name = "infonavit"/>
+            <field name = "monto_infonavit" attrs="{'invisible':[('infonavit','=',False)]}"/>
+          </group>
+        </page>
+      </xpath>
+    </field>
+  </record>
+
+  <record id = "InheritCampos_nu" model = "ir.ui.view">
+     <field name = "name">InheritCampos_nu</field>
+     <field name = "model">sales.commission</field>
+     <field name = "inherit_id" ref = "sales_commission_calculation.sales_commission_worksheet_form_view"/>
+     <field name = "arch" type = "xml">
+      <xpath expr = "//field[@name='end_date']" position = "after">
+            <field name = "monto_info"/>
+            <field name = "monto_isr"/>
+            <field name = "total_comi"/>
+      </xpath>
+    </field>
+  </record>
+
+</data>
+</odoo>

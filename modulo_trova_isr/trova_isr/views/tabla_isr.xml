@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+   <!-- Vista form -->
+   <record id="isr_view_form" model="ir.ui.view">
+    <field name="name">isr.view.form</field>
+    <field name="model">sales.commission.isr</field>
+    <field name="arch" type="xml">
+      <form string="Agregar ISR">
+        <sheet>
+          <group>
+            <field name="limite_inferior" string="Límite inferior"/>
+            <field name="limite_superior" string="Límite superior"/>
+            <field name="porcentaje_isr" string="Porcentaje ISR"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id = "isr_view_tree" model = "ir.ui.view">
+   <field name = "name">isr.view.tree</field>
+   <field name = "model">sales.commission.isr</field>
+   <field name = "arch" type = "xml">
+    <tree >
+      <field name = "limite_inferior" string = "Limite inferior"/>
+      <field name = "limite_superior" string = "Limite superior"/>
+      <field name = "porcentaje_isr" string = "Porcentaje ISR"/>
+    </tree>
+  </field>
+</record>
+
+<record id="action_commission_isr" model="ir.actions.act_window">
+  <field name="name">Inpuesto sobre la renta.</field>
+  <field name="type">ir.actions.act_window</field>
+  <field name="res_model">sales.commission.isr</field>
+  <field name="view_type">form</field>
+  <field name="view_mode">tree,form</field>
+  <field name="filter" eval="True"/>
+</record>
+<menuitem id="commission_isr" name="ISR" action="action_commission_isr" parent="sales_commission_calculation.sales_commission_menu_main" sequence="99"/>
+
+</data>
+</odoo>
